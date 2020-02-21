@@ -5,7 +5,7 @@ Entorno de desarrollo docker para disponer de ciertas herramientas:
 - Nginx corriendo en el puerto 80 con PHP
 
 
-# Clonar el entorno
+## Clonar el entorno
 
 Para clonar el entorno se debe lanzar: 
 
@@ -13,7 +13,7 @@ Para clonar el entorno se debe lanzar:
 git clone https://github.com/metricalab/entornoDockerMetrica
 ```
 
-# Construir el entorno
+## Construir el entorno
 
 Al contruir el entorno se generarán 3 imágenes. Se debe lanzar:
 
@@ -27,4 +27,4 @@ Para borrar los contenedores:
 docker-compose down
 ```
 
-# Volumenes
+## Volúmenes
