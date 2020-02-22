@@ -1,9 +1,7 @@
-# entornoDockerMetrica
-Entorno de desarrollo docker para disponer de ciertas herramientas:
+|Entorno con docker para el lab de métrica | ![Metrica](https://github.com/metricalab/refranes/blob/master/src/main/resources/static/metricaLogo.jpg) |
+|-------|--------|
 
-- Base de datos MariaDB (con la base de datos db_sayings creada). Puerto 3306.
-- Nginx corriendo en el puerto 80 con PHP
-
+Mediante este entorno se puede obtener de un servidor nginx (con PHP) y una base de datos MariaDB para realizar los talleres. Por defecto se dispone de la una base de datos llamada db_sayings.
 
 ## Clonar el entorno
 
