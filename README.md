@@ -26,3 +26,9 @@ docker-compose down
 ```
 
 ## Volúmenes
+
+Los volúmenes en docker son carpetas donde se guardan datos que queremos persistir aunque se para o borre un contenedor. En el directorio raiz se dispone de 3 volúmenes dentro de la carpete volumes:
+
+- volumes/logs :  Se guardan los logs que genera el servidor **nginx**
+- volumes/mariadb:  se guardan las base de datos que se crean en la base de datos **MARIADB**  
+- volumes/nginx: es la carpeta root del servidor. Es decir, si guardas una página html en ella podrás leerla desde la dirección http://localhost
