@@ -36,4 +36,4 @@ Los volúmenes en docker son carpetas donde se guardan datos que queremos persis
 ## Información de la base de datos
 
 - La password de root es **metrica123**
-- Existe un usuario **metricauser** con password **metricapassword**
+- Existe un usuario **metricauser** con password **metricapassword** . Este usuario tiene acceso a la base de datos **db_sayings**.
