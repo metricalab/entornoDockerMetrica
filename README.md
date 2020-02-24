@@ -32,3 +32,8 @@ Los volúmenes en docker son carpetas donde se guardan datos que queremos persis
 - **volumes/logs**:  Se guardan los logs que genera el servidor **nginx**
 - **volumes/mariadb**:  se guardan las base de datos que se crean en la base de datos **MARIADB**  
 - **volumes/nginx**: es la carpeta root del servidor. Es decir, si guardas una página html en ella podrás leerla desde la dirección http://localhost
+
+## Información de la base de datos
+
+- La contraseña de root es metrica123
+- Existe un usuario **metricauser** con password **metricapassword**
