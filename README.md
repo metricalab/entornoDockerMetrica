@@ -10,6 +10,11 @@ Para clonar el entorno se debe lanzar:
 ```
 git clone https://github.com/metricalab/entornoDockerMetrica
 ```
+A continuación entrar en el directorio entornoDockerMetrica con:
+
+```
+cd entornoDockerMetrica
+```
 
 ## Construir el entorno y borrar los contenedores
 
