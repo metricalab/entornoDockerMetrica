@@ -1,1 +1,111 @@
-Me Gusta el vino!!
+<!doctype html>
+<html lang="en" class="h-100">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="Metrica ">
+  <meta name="description" content="Metrica lab">
+
+  <title>Entorno trabajo Metricalab</title>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body class="d-flex flex-column h-100">
+
+  <main role="main" class="flex-shrink-0">
+    <div class="container">
+
+      <table class="table table-bordered mt-5 col-6">
+        <tbody>
+          <tr>
+            <td>
+              <h3>Entorno con docker para el lab de métrica</h3>
+            </td>
+            <th scope="row"><img src="/assets/img/metricaLogo.jpg" class="img-fluid" alt="Metrica Logo"></th>
+          </tr>
+        </tbody>
+      </table>
+      <p class="lead">Mediante este entorno se dispone un servidor nginx (con PHP) y una base de datos MariaDB para
+        realizar los talleres. Por defecto se dispone de una base de datos llamada db_sayings.</p>
+    </div>
+  </main>
+
+  <div class="container mt-2">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Clonar el entorno</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Para clonar el entorno se debe lanzar:</h6>
+        <pre class="card-text">git clone https://github.com/metricalab/entornoDockerMetrica</pre>
+      </div>
+    </div>
+
+    <div class="card mt-2">
+      <div class="card-body">
+        <h5 class="card-title">Construir el entorno y borrar los contenedores</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Al contruir el entorno se generarán 3 imágenes. Se debe lanzar:</h6>
+        <pre class="card-text">docker-compose up -d</pre>
+        <h6 class="card-subtitle mb-2 text-muted">Para borrar los contenedores:</h6>
+        <pre class="card-text">docker-compose down</pre>
+      </div>
+    </div>
+
+    <div class="card mt-2">
+      <div class="card-body">
+        <h5 class="card-title">Volúmenes</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Los volúmenes en docker son carpetas donde se guardan datos que
+          queremos persistir aunque se para o borre un contenedor. En el directorio raiz se dispone de 3 volúmenes
+          dentro de la carpete volumes:</h6>
+        <p class="card-text">
+          <ul>
+            <li><strong>volumes/logs</strong> : Se guardan los logs que genera el servidor <strong>nginx</strong></li>
+            <li><strong>volumes/mariadb</strong> : se guardan las base de datos que se crean en la base de datos
+              <strong>MariaDB</strong></li>
+            <li><strong>volumes/nginx</strong> : es la carpeta root del servidor. Es decir, si guardas una página html
+              en ella podrás
+              leerla desde la dirección http://localhost</li>
+          </ul>
+        </p>
+      </div>
+    </div>
+
+    <div class="card mt-2">
+      <div class="card-body">
+        <h5 class="card-title">Información de la base de datos</h5>
+        <p class="card-text">
+          <ul>
+            <li>La password de root es <strong>metrica123</strong></li>
+            <li>Existe un usuario <strong>metricauser</strong> con password <strong>metricapassword</strong>. Este
+              usuario tiene acceso a la base de datos <strong>db_sayings</strong>.</li>
+          </ul>
+        </p>
+      </div>
+    </div>
+
+    <div class="card mt-2">
+      <div class="card-body">
+        <h5 class="card-title">Uso de phpMyadmin con docker</h5>
+        <h6 class="card-subtitle mb-2 text-muted">PhpMyadmin es un cliente web para gestionar bases de datos de manera
+          sencilla</h6>
+        <p class="card-text">Por comodidad vamos a utilizar una imagen docker del propio creador PhpMyAdmin. Una vez que
+          se ha levantado el entorno de Nginx y MariaDB para correr phpMyadmin por el puerto <strong>8081</strong> se
+          debe lanzar el comando:</p>
+        <pre
+          class="card-text">docker run --network=entornodockermetrica_default --name phpmyadmin -d -e PMA_HOST=entornodockermetrica_mysql_1 --link entornodockmetrica_mysql_1:db -p 8081:80 phpmyadmin/phpmyadmin</pre>
+        <p class="card-text">Se puede acceder a la aplicación desde la url: <strong>http://localhost:8081<strong></p>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="footer mt-auto py-3">
+    <div class="container">
+      <span class="text-muted">MetricaLab.</span>
+    </div>
+  </footer>
+</body>
+
+</html>
