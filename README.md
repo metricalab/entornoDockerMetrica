@@ -37,3 +37,13 @@ Los volúmenes en docker son carpetas donde se guardan datos que queremos persis
 
 - La password de root es **metrica123**
 - Existe un usuario **metricauser** con password **metricapassword** . Este usuario tiene acceso a la base de datos **db_sayings**.
+
+## Uso de phpMyAdmin con docker
+
+PhpMyadmin es un cliente web para gestionar bases de datos de manera sencilla. Por comodidad vamos a utilizar una imagen docker del propio creador PhpMyAdmin. Una vez que se ha levantado el entorno de Nginx y MariaDB para correr phpMyadmin por el puerto **8081** se debe lanzar el comando:
+
+```
+docker run --network=entornodockermetrica_default --name phpmyadmin -d -e PMA_HOST=entornodockermetrica_mysql_1 --link entornodockmetrica_mysql_1:db -p 8081:80 phpmyadmin/phpmyadmin
+```
+
+Se puede acceder a la aplicación desde la url: **http://localhost:8081**
