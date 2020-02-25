@@ -58,7 +58,7 @@ Accediendo a http://localhost/test/connect.php se comprueba si funciona correcta
 
 ![Metrica](https://github.com/metricalab/entornoDockerMetrica/blob/master/volumes/nginx/assets/img/connect.png)
 
-Si se accede al código se puede comprobar que el **HOST** de acceso es **mysql** y no es **localhost**.
+Si se accede al código de la página **PHP** se puede comprobar que el **HOST** de acceso es **mysql** y no es **localhost**.
 
 ## Información de los contenedores generados
 
