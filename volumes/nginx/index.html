@@ -19,44 +19,50 @@
   <main role="main" class="flex-shrink-0">
     <div class="container">
 
-      <table class="table table-bordered mt-5 col-6">
+      <table class="table table-bordered mt-3">
         <tbody>
           <tr>
             <td>
               <h3>Entorno con docker para MetricaLab</h3>
             </td>
-            <th scope="row"><img src="/assets/img/metricaLogo.jpg" class="img-fluid" alt="Metrica Logo"></th>
+            <th scope="row"><img src="/assets/img/metricaLogo.jpg" class="img-fluid mx-auto d-block" alt="Metrica Logo">
+            </th>
           </tr>
         </tbody>
       </table>
-      <p class="lead">Mediante este entorno se dispone un servidor <strong>nginx</strong> (con <strong>PHP</strong>) y una base de datos <strong>MariaDB</strong> para
+      <p class="lead">Mediante este entorno se dispone un servidor <strong>nginx</strong> (con <strong>PHP</strong>) y
+        una base de datos <strong>MariaDB</strong> para
         realizar los talleres. Por defecto se dispone de una base de datos llamada <strong>db_sayings</strong>.</p>
     </div>
   </main>
 
-  <div class="container mt-2">
+  <div class="container mt-3">
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">Clonar el entorno</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Para clonar el entorno se debe lanzar:</h6>
+        <h6 class="card-subtitle mb-2 text-muted mt-2">Para clonar el entorno se debe lanzar:</h6>
         <pre class="card-text">git clone https://github.com/metricalab/entornoDockerMetrica</pre>
+        <h6 class="card-subtitle mb-2 text-muted mt-2">A continuación se entra en el directorio
+          <strong>entornoDockerMetrica</strong>:</h6>
+        <pre class="card-text">cd entornoDockerMetrica</pre>
       </div>
     </div>
 
-    <div class="card mt-2">
+    <div class="card mt-3">
       <div class="card-body">
         <h5 class="card-title">Construir el entorno y borrar los contenedores</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Al contruir el entorno se generarán 3 imágenes. Se debe lanzar:</h6>
+        <h6 class="card-subtitle mb-2 text-muted mt-2">Al contruir el entorno se generarán 3 imágenes. Se debe lanzar:
+        </h6>
         <pre class="card-text">docker-compose up -d</pre>
-        <h6 class="card-subtitle mb-2 text-muted">Para borrar los contenedores:</h6>
+        <h6 class="card-subtitle mb-2 text-muted mt-2">Para borrar los contenedores:</h6>
         <pre class="card-text">docker-compose down</pre>
       </div>
     </div>
 
-    <div class="card mt-2">
+    <div class="card mt-3">
       <div class="card-body">
         <h5 class="card-title">Volúmenes</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Los volúmenes en docker son carpetas donde se guardan datos que
+        <h6 class="card-subtitle mb-2 text-muted mt-2">Los volúmenes en docker son carpetas donde se guardan datos que
           queremos persistir aunque se para o borre un contenedor. En el directorio raiz se dispone de 3 volúmenes
           dentro de la carpete volumes:</h6>
         <p class="card-text">
@@ -64,20 +70,21 @@
             <li><strong>volumes/logs</strong> : Se guardan los logs que genera el servidor <strong>nginx</strong></li>
             <li><strong>volumes/mariadb</strong> : se guardan las base de datos que se crean en la base de datos
               <strong>MariaDB</strong></li>
-            <li><strong>volumes/nginx</strong> : es la carpeta root del servidor. Es decir, si guardas una página html
+            <li><strong>volumes/nginx</strong> : es la carpeta root del servidor. Es decir, si se guarda una página html
               en ella podrás
-              leerla desde la dirección http://localhost</li>
+              leerla desde la dirección <a href="http://localhost" target="_blank">http://localhost</a></li>
           </ul>
         </p>
       </div>
     </div>
 
-    <div class="card mt-2">
+    <div class="card mt-3">
       <div class="card-body">
         <h5 class="card-title">Información de la base de datos</h5>
         <p class="card-text">
           <ul>
-            <li>La password de root es <strong>metrica123</strong></li>
+            <li>El host de acceso a base de datos es <strong>mysql</strong> no <strong>localhost</strong>.</li>
+            <li>La password de root es <strong>metrica123</strong>.</li>
             <li>Existe un usuario <strong>metricauser</strong> con password <strong>metricapassword</strong>. Este
               usuario tiene acceso a la base de datos <strong>db_sayings</strong>.</li>
           </ul>
@@ -85,25 +92,108 @@
       </div>
     </div>
 
-    <div class="card mt-2">
+    <div class="card mt-3">
+      <div class="card-body">
+        <h5 class="card-title">Test de la correcta instalación de PHP</h5>
+        <h6 class="card-subtitle mb-2 text-muted mt-2"> Antes de comenzar a trabajar con el entorno hay que probar su
+          funcionamiento. </h6>
+        <h6 class="card-text">Accediendo a <a href="http://localhost/test/phpinfo.php"
+            target="_blank">http://localhost/test/phpinfo.php</a> se comprueba si funciona correctamente el contenedor
+          de php. Si no es así se mostrará una pantalla de error. </h6>
+        <img src="/assets/img/phpinfo.jpg" class="img-fluid mt-2 mx-auto d-block img-thumbnail" alt="Info de PHP">
+      </div>
+    </div>
+
+    <div class="card mt-3">
+      <div class="card-body">
+        <h5 class="card-title">Test de acceso a la base de datos</h5>
+        <h6 class="card-subtitle mb-2 text-muted mt-2"> Antes de comenzar a trabajar con el entorno hay que probar su
+          funcionamiento. </h6>
+        <h6 class="card-text">Accediendo a <a href="http://localhost/test/connect.php"
+            target="_blank">http://localhost/test/connect.php</a> se comprueba si funciona correctamente el contenedor
+          de MariaDB. Si no así se mostrará una pantalla de error. </h6>
+        <img src="/assets/img/connect.png" class="img-fluid mt-2 mx-auto d-block img-thumbnail"
+          alt="Conectar a MariaDB">
+        <h6 class="card-text mt-2">Si se accede al código se puede comprobar que el <strong>HOST</strong> de acceso es
+          <strong>mysql</strong> y no es <strong>localhost</strong>. </h6>
+      </div>
+    </div>
+
+    <div class="card mt-3">
+      <div class="card-body">
+        <h5 class="card-title">Información de los contenedores generados</h5>
+        <h6 class="card-subtitle mb-2 text-muted mt-2"> Nombres y red usados por los contenedores </h6>
+        <h6 class="card-text"> La red que se crea se llama <strong>entornodockermetrica_default</strong>. Esta
+          información es necesaria para conectar desde otros contenedores. Para obtener la información
+          de los contenedores generados se lanza el comando: <strong>docker ps -a</strong> (los ids varian en cada
+          ejecución)</h6>
+
+        <table class="table mt-4">
+          <thead>
+            <tr>
+              <th scope="col">CONTAINER ID</th>
+              <th scope="col">IMAGE</th>
+              <th scope="col">COMMAND </th>
+              <th scope="col">CREATED</th>
+              <th scope="col">STATUS </th>
+              <th scope="col">PORTS </th>
+              <th scope="col">NAMES</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">e63d4e64f4e5</th>
+              <td>nginx:1.13.8 </td>
+              <td>"nginx -g 'daemon of…" </td>
+              <td>12 hours ago</td>
+              <td>Up 3 hours</td>
+              <td>0.0.0.0:80->80/tcp</td>
+              <td>entornodockermetrica_nginx_1</td>
+            </tr>
+            <tr>
+              <th scope="row">e0b9c9bf17cf</th>
+              <td>mariadb</td>
+              <td>"docker-entrypoint.s…"</td>
+              <td>12 hours ago</td>
+              <td>Up 3 hours </td>
+              <td>0.0.0.0:3306->3306/tcp</td>
+              <td>entornodockermetrica_mysql_1</td>
+            </tr>
+            <tr>
+              <th scope="row">abbce5ec8310</th>
+              <td>entornodockermetrica_php</td>
+              <td>"docker-php-entrypoi…"</td>
+              <td>12 hours ago</td>
+              <td>Up 3 hours</td>
+              <td>0.0.0.0:9000->9000/tcp</td>
+              <td>entornodockermetrica_php_1</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card mt-3">
       <div class="card-body">
         <h5 class="card-title">Uso de phpMyadmin con docker</h5>
-        <h6 class="card-subtitle mb-2 text-muted">PhpMyadmin es un cliente web para gestionar bases de datos de manera
+        <h6 class="card-subtitle mb-2 text-muted mt-2">PhpMyadmin es un cliente web para gestionar bases de datos de
+          manera
           sencilla</h6>
         <p class="card-text">Por comodidad vamos a utilizar una imagen docker del propio creador PhpMyAdmin. Una vez que
           se ha levantado el entorno de Nginx y MariaDB para correr phpMyadmin por el puerto <strong>8081</strong> se
           debe lanzar el comando:</p>
         <pre
           class="card-text">docker run --network=entornodockermetrica_default --name phpmyadmin -d -e PMA_HOST=entornodockermetrica_mysql_1 --link entornodockmetrica_mysql_1:db -p 8081:80 phpmyadmin/phpmyadmin</pre>
-        <p class="card-text">Se puede acceder a la aplicación desde la url: <strong>http://localhost:8081<strong></p>
+        <p class="card-text">Se puede acceder a la aplicación desde la url: <a href="http://localhost:8081"
+            target="_blank">http://localhost:8081</a></p>
       </div>
     </div>
 
   </div>
 
-  <footer class="footer mt-auto py-3">
-    <div class="container">
-      <span class="text-muted">MetricaLab.</span>
+  <footer class="footer mt-auto py-3 mt-3">
+    <div class="container text-center">
+      <span class="text-muted">MetricaLab. 2020.</span>
     </div>
   </footer>
 </body>
