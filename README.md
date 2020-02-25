@@ -49,7 +49,27 @@ Los volúmenes en docker son carpetas donde se guardan datos que queremos persis
 Antes de comenzar a trabajar con el entorno hay que probar su funcionamiento.
 Accesiendo a http://localhost/test/phpinfo.php se comprueba si funciona correctamente el contenedor de php. Si no es así se mostrará una pantalla de error.
 
-![Metrica](https://github.com/metricalab/refranes/blob/master/src/main/resources/static/metricaLogo.jpg)
+![Metrica](https://github.com/metricalab/entornoDockerMetrica/blob/master/volumes/nginx/assets/img/phpinfo.jpg)
+
+## Test de acceso a la base de datos
+
+Antes de comenzar a trabajar con el entorno hay que probar su funcionamiento.
+Accediendo a http://localhost/test/connect.php se comprueba si funciona correctamente el contenedor de **MariaDB**. Si no es así se mostrará una pantalla de error.
+
+![Metrica](https://github.com/metricalab/entornoDockerMetrica/blob/master/volumes/nginx/assets/img/connect.png)
+
+Si se accede al código se puede comprobar que el **HOST** de acceso es **mysql** y no es **localhost**.
+
+## Información de los contenedores generados
+
+Nombres y red usados por los contenedores
+La red que se crea se llama **entornodockermetrica_default**. Esta información es necesaria para conectar desde otros contenedores. Para obtener la información de los contenedores generados se lanza el comando: **docker ps -a (los ids varian en cada ejecución)
+
+| CONTAINER ID | IMAGE | COMMAND | CREATED | STATUS | PORTS | NAMES |
+|--|--|--|--|--|--|--|
+| e63d4e64f4e5 | nginx:1.13.8 | "nginx -g 'daemon of…" | 12 hours ago | Up 3 hours | 0.0.0.0:80->80/tcp | entornodockermetrica_nginx_1 |
+| e0b9c9bf17cf | mariadb | "docker-entrypoint.s…" | 12 hours ago | Up 3 hours | 0.0.0.0:3306->3306/tcp | entornodockermetrica_mysql_1 |
+| abbce5ec8310 | entornodockermetrica_php | "docker-php-entrypoi…" | 12 hours ago | Up 3 hours | 0.0.0.0:9000->9000/tcp | entornodockermetrica_php_1|
 
 ## Uso de phpMyAdmin con docker
 
