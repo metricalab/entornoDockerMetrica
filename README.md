@@ -10,7 +10,7 @@ Para clonar el entorno se debe lanzar:
 ```
 git clone https://github.com/metricalab/entornoDockerMetrica
 ```
-A continuación entrar en el directorio entornoDockerMetrica con:
+A continuación se entra en el directorio **entornoDockerMetrica**:
 
 ```
 cd entornoDockerMetrica
@@ -36,12 +36,20 @@ Los volúmenes en docker son carpetas donde se guardan datos que queremos persis
 
 - **volumes/logs**:  Se guardan los logs que genera el servidor **nginx**
 - **volumes/mariadb**:  se guardan las base de datos que se crean en la base de datos **MariaDB**  
-- **volumes/nginx**: es la carpeta root del servidor. Es decir, si guardas una página html en ella podrás leerla desde la dirección http://localhost
+- **volumes/nginx**: es la carpeta root del servidor. Es decir, si se guarda una página html en ella podrás leerla desde la dirección http://localhost
 
 ## Información de la base de datos
 
+- el host de acceso a base de datos es **mysql** no **localhost**
 - La password de root es **metrica123**
 - Existe un usuario **metricauser** con password **metricapassword** . Este usuario tiene acceso a la base de datos **db_sayings**.
+
+## Test de la correcta instalación de PHP
+
+Antes de comenzar a trabajar con el entorno hay que probar su funcionamiento.
+Accesiendo a http://localhost/test/phpinfo.php se comprueba si funciona correctamente el contenedor de php. Si no es así se mostrará una pantalla de error.
+
+![Metrica](https://github.com/metricalab/refranes/blob/master/src/main/resources/static/metricaLogo.jpg)
 
 ## Uso de phpMyAdmin con docker
 
