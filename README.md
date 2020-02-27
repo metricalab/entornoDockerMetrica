@@ -36,7 +36,7 @@ Los volúmenes en docker son carpetas donde se guardan datos que queremos persis
 
 - **volumes/logs**:  Se guardan los logs que genera el servidor **nginx**
 - **volumes/mariadb**:  se guardan las base de datos que se crean en **MariaDB**  
-- **volumes/mariadb_init**:  Contiene un script para crear nuevas tablas y usuarios. Actualmente inserta la tabla **db_tasks** 
+- **volumes/mariadb_init**:  Contiene un script para crear nuevas tablas y usuarios. Actualmente inserta la tabla **db_tasks** y **db_clientes_ex_crud**
 - **volumes/mariadb_config** : Contiene un fichero con parámetros de configuración	
 - **volumes/nginx**: es la carpeta root del servidor. Es decir, si se guarda una página html en ella podrás leerla desde la dirección http://localhost
 
