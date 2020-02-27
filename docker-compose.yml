@@ -26,11 +26,12 @@ services:
             - php
 
     mysql:
-        image: mariadb
+        image: mysql:8.0.19
         ports:
             - 3306:3306
         depends_on:
             - php
+        restart: always    
         environment:
             MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
             MYSQL_DATABASE: ${MYSQL_DATABASE}
@@ -38,4 +39,7 @@ services:
             MYSQL_PASSWORD: ${MYSQL_PASSWORD}
         volumes:
             - ./volumes/mariadb_init:/docker-entrypoint-initdb.d
+            - ./volumes/mariadb_config:/etc/mysql/conf.d
             - ./volumes/mariadb/:/var/lib/mysql
+        command:
+            'mysqld'
