@@ -70,7 +70,7 @@ La red que se crea se llama **entornodockermetrica_default**. Esta información 
 | CONTAINER ID | IMAGE | COMMAND | CREATED | STATUS | PORTS | NAMES |
 |--|--|--|--|--|--|--|
 | e63d4e64f4e5 | nginx:1.13.8 | "nginx -g 'daemon of…" | 12 hours ago | Up 3 hours | 0.0.0.0:80->80/tcp | entornodockermetrica_nginx_1 |
-| e0b9c9bf17cf | mysql | "docker-entrypoint.s…" | 12 hours ago | Up 3 hours | 0.0.0.0:3306->3306/tcp | entornodockermetrica_mysql_1 |
+| e0b9c9bf17cf | mysql:8.0.19 | "docker-entrypoint.s…" | 12 hours ago | Up 3 hours | 0.0.0.0:3306->3306/tcp | entornodockermetrica_mysql_1 |
 | abbce5ec8310 | entornodockermetrica_php | "docker-php-entrypoi…" | 12 hours ago | Up 3 hours | 0.0.0.0:9000->9000/tcp | entornodockermetrica_php_1|
 
 ## Uso de phpMyAdmin con docker
