@@ -1,7 +1,7 @@
 |Entorno con docker para MétricaLab | ![Metrica](https://github.com/metricalab/refranes/blob/master/src/main/resources/static/metricaLogo.jpg) |
 |-------|--------|
 
-Mediante este entorno se dispone un servidor **nginx** (con PHP) y una base de datos **MariaDB** para realizar los talleres. Por defecto se dispone de una base de datos llamada **db_sayings**.
+Mediante este entorno se dispone un servidor **nginx** (con PHP) y una base de datos **Mysql** para realizar los talleres. Por defecto se dispone de una base de datos llamada **db_sayings**.
 
 ## Clonar el entorno
 
@@ -35,9 +35,9 @@ docker-compose down
 Los volúmenes en docker son carpetas donde se guardan datos que queremos persistir aunque se para o borre un contenedor. En el directorio raiz se dispone de 3 volúmenes dentro de la carpete volumes:
 
 - **volumes/logs**:  Se guardan los logs que genera el servidor **nginx**
-- **volumes/mariadb**:  se guardan las base de datos que se crean en **MariaDB**  
-- **volumes/mariadb_init**:  Contiene un script para crear nuevas tablas y usuarios. Actualmente inserta la tabla **db_tasks** y **db_clientes_ex_crud**
-- **volumes/mariadb_config** : Contiene un fichero con parámetros de configuración	
+- **volumes/mysql**:  se guardan las base de datos que se crean en **Mysql**  
+- **volumes/mysql_init**:  Contiene un script para crear nuevas tablas y usuarios. Actualmente inserta la tabla **db_tasks** y **db_clientes_ex_crud**
+- **volumes/mysql_config** : Contiene un fichero con parámetros de configuración	
 - **volumes/nginx**: es la carpeta root del servidor. Es decir, si se guarda una página html en ella podrás leerla desde la dirección http://localhost
 
 ## Información de la base de datos
@@ -56,7 +56,7 @@ Accesiendo a http://localhost/test/phpinfo.php se comprueba si funciona correcta
 ## Test de acceso a la base de datos
 
 Antes de comenzar a trabajar con el entorno hay que probar su funcionamiento.
-Accediendo a http://localhost/test/connect.php se comprueba si funciona correctamente el contenedor de **MariaDB**. Si no es así se mostrará una pantalla de error.
+Accediendo a http://localhost/test/connect.php se comprueba si funciona correctamente el contenedor de **Mysql**. Si no es así se mostrará una pantalla de error.
 
 ![Metrica](https://github.com/metricalab/entornoDockerMetrica/blob/master/volumes/nginx/assets/img/connect.png)
 
@@ -70,12 +70,12 @@ La red que se crea se llama **entornodockermetrica_default**. Esta información 
 | CONTAINER ID | IMAGE | COMMAND | CREATED | STATUS | PORTS | NAMES |
 |--|--|--|--|--|--|--|
 | e63d4e64f4e5 | nginx:1.13.8 | "nginx -g 'daemon of…" | 12 hours ago | Up 3 hours | 0.0.0.0:80->80/tcp | entornodockermetrica_nginx_1 |
-| e0b9c9bf17cf | mariadb | "docker-entrypoint.s…" | 12 hours ago | Up 3 hours | 0.0.0.0:3306->3306/tcp | entornodockermetrica_mysql_1 |
+| e0b9c9bf17cf | mysql | "docker-entrypoint.s…" | 12 hours ago | Up 3 hours | 0.0.0.0:3306->3306/tcp | entornodockermetrica_mysql_1 |
 | abbce5ec8310 | entornodockermetrica_php | "docker-php-entrypoi…" | 12 hours ago | Up 3 hours | 0.0.0.0:9000->9000/tcp | entornodockermetrica_php_1|
 
 ## Uso de phpMyAdmin con docker
 
-PhpMyadmin es un cliente web para gestionar bases de datos de manera sencilla. Por comodidad vamos a utilizar una imagen docker del propio creador PhpMyAdmin. Una vez que se ha levantado el entorno de Nginx y MariaDB para correr phpMyadmin por el puerto **8081** se debe lanzar el comando:
+PhpMyadmin es un cliente web para gestionar bases de datos de manera sencilla. Por comodidad vamos a utilizar una imagen docker del propio creador PhpMyAdmin. Una vez que se ha levantado el entorno de Nginx y Mysql para correr phpMyadmin por el puerto **8081** se debe lanzar el comando:
 
 ```
 docker run --network=entornodockermetrica_default --name phpmyadmin -d -e PMA_HOST=entornodockermetrica_mysql_1 --link entornodockmetrica_mysql_1:db -p 8081:80 phpmyadmin/phpmyadmin
