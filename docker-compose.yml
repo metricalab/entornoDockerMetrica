@@ -38,8 +38,8 @@ services:
             MYSQL_USER: ${MYSQL_USER}
             MYSQL_PASSWORD: ${MYSQL_PASSWORD}
         volumes:
-            - ./volumes/mariadb_init:/docker-entrypoint-initdb.d
-            - ./volumes/mariadb_config:/etc/mysql/conf.d
-            - ./volumes/mariadb/:/var/lib/mysql
+            - ./volumes/mysql_init:/docker-entrypoint-initdb.d
+            - ./volumes/mysql_config:/etc/mysql/conf.d
+            - ./volumes/mysql/:/var/lib/mysql
         command:
             'mysqld'
