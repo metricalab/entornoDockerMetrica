@@ -31,7 +31,7 @@
         </tbody>
       </table>
       <p class="lead">Mediante este entorno se dispone un servidor <strong>nginx</strong> (con <strong>PHP</strong>) y
-        una base de datos <strong>MariaDB</strong> para
+        una base de datos <strong>Mysql</strong> para
         realizar los talleres. Por defecto se dispone de una base de datos llamada <strong>db_sayings</strong>.</p>
     </div>
   </main>
@@ -68,10 +68,10 @@
         <p class="card-text">
           <ul>
             <li><strong>volumes/logs</strong> : Se guardan los logs que genera el servidor <strong>nginx</strong></li>
-            <li><strong>volumes/mariadb</strong> : se guardan las base de datos que se crean en la base de datos
-              <strong>MariaDB</strong></li>
-			<li><strong>volumes/mariadb_init</strong> : Contiene un script para crear nuevas tablas y usuarios. Actualmente inserta la tabla <strong>db_tasks</strong> y <strong>db_clientes_ex_crud</strong></li>	
-			<li><strong>volumes/mariadb_config</strong> : Contiene un fichero con parámetros de configuración</li>					
+            <li><strong>volumes/mysql</strong> : se guardan las base de datos que se crean en la base de datos
+              <strong>Mysql</strong></li>
+			<li><strong>volumes/mysql_init</strong> : Contiene un script para crear nuevas tablas y usuarios. Actualmente inserta la tabla <strong>db_tasks</strong> y <strong>db_clientes_ex_crud</strong></li>	
+			<li><strong>volumes/mysql_config</strong> : Contiene un fichero con parámetros de configuración</li>					
             <li><strong>volumes/nginx</strong> : es la carpeta root del servidor. Es decir, si se guarda una página html
               en ella podrás
               leerla desde la dirección <a href="http://localhost" target="_blank">http://localhost</a></li>
@@ -113,9 +113,9 @@
           funcionamiento. </h6>
         <h6 class="card-text">Accediendo a <a href="http://localhost/test/connect.php"
             target="_blank">http://localhost/test/connect.php</a> se comprueba si funciona correctamente el contenedor
-          de MariaDB. Si no así se mostrará una pantalla de error. </h6>
+          de Mysql. Si no así se mostrará una pantalla de error. </h6>
         <img src="/assets/img/connect.png" class="img-fluid mt-2 mx-auto d-block img-thumbnail"
-          alt="Conectar a MariaDB">
+          alt="Conectar a Mysql">
         <h6 class="card-text mt-2">Si se accede al código de la página <strong>PHP</strong> se puede comprobar que el <strong>HOST</strong> de acceso es
           <strong>mysql</strong> y no es <strong>localhost</strong>. </h6>
       </div>
@@ -154,7 +154,7 @@
             </tr>
             <tr>
               <th scope="row">e0b9c9bf17cf</th>
-              <td>mariadb</td>
+              <td>mysql:8.0.19</td>
               <td>"docker-entrypoint.s…"</td>
               <td>12 hours ago</td>
               <td>Up 3 hours </td>
@@ -182,7 +182,7 @@
           manera
           sencilla</h6>
         <p class="card-text">Por comodidad vamos a utilizar una imagen docker del propio creador PhpMyAdmin. Una vez que
-          se ha levantado el entorno de Nginx y MariaDB para correr phpMyadmin por el puerto <strong>8081</strong> se
+          se ha levantado el entorno de Nginx y Mysql para correr phpMyadmin por el puerto <strong>8081</strong> se
           debe lanzar el comando:</p>
         <pre
           class="card-text">docker run --network=entornodockermetrica_default --name phpmyadmin -d -e PMA_HOST=entornodockermetrica_mysql_1 --link entornodockmetrica_mysql_1:db -p 8081:80 phpmyadmin/phpmyadmin</pre>
