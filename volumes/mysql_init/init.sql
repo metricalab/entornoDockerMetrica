@@ -1,5 +1,6 @@
--- Crear la base de datos db_tasks
+-- Crear las bases de datos
 CREATE DATABASE IF NOT EXISTS db_tasks;
+CREATE DATABASE IF NOT EXISTS db_sayings;
 CREATE DATABASE IF NOT EXISTS db_clientes_ex_crud;
 CREATE DATABASE IF NOT EXISTS db_um_producto;
 CREATE DATABASE IF NOT EXISTS db_um_usuarios;
@@ -9,11 +10,13 @@ CREATE DATABASE IF NOT EXISTS db_im_internalprocedures;
 CREATE DATABASE IF NOT EXISTS db_im_marketing;
 
 
--- Crear usuario
+-- Crear usuarios para base de datos
 CREATE USER 'tasksuser'@'%' IDENTIFIED BY 'taskspassword';
+CREATE USER 'sayingsuser'@'%' IDENTIFIED BY 'sayingspassword';
 
 -- Permisos para el nuevo usuario
 GRANT CREATE, ALTER, INDEX, LOCK TABLES, REFERENCES, UPDATE, DELETE, DROP, SELECT, INSERT ON `db_tasks`.* TO 'tasksuser'@'%';
+GRANT CREATE, ALTER, INDEX, LOCK TABLES, REFERENCES, UPDATE, DELETE, DROP, SELECT, INSERT ON `db_sayings`.* TO 'sayingsuser'@'%';
 GRANT CREATE, ALTER, INDEX, LOCK TABLES, REFERENCES, UPDATE, DELETE, DROP, SELECT, INSERT ON `db_clientes_ex_crud`.* TO 'root'@'%';
 GRANT CREATE, ALTER, INDEX, LOCK TABLES, REFERENCES, UPDATE, DELETE, DROP, SELECT, INSERT ON `db_um_producto`.* TO 'root'@'%';
 GRANT CREATE, ALTER, INDEX, LOCK TABLES, REFERENCES, UPDATE, DELETE, DROP, SELECT, INSERT ON `db_um_usuarios`.* TO 'root'@'%';
@@ -21,6 +24,5 @@ GRANT CREATE, ALTER, INDEX, LOCK TABLES, REFERENCES, UPDATE, DELETE, DROP, SELEC
 GRANT CREATE, ALTER, INDEX, LOCK TABLES, REFERENCES, UPDATE, DELETE, DROP, SELECT, INSERT ON `db_im_metricalab`.* TO 'root'@'%';
 GRANT CREATE, ALTER, INDEX, LOCK TABLES, REFERENCES, UPDATE, DELETE, DROP, SELECT, INSERT ON `db_im_internalprocedures`.* TO 'root'@'%';
 GRANT CREATE, ALTER, INDEX, LOCK TABLES, REFERENCES, UPDATE, DELETE, DROP, SELECT, INSERT ON `db_im_marketing`.* TO 'root'@'%';
-
 
 FLUSH PRIVILEGES;
