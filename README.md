@@ -1,4 +1,4 @@
-|Entorno con docker para MétricaLab | ![Metrica](https://github.com/metricalab/refranes/blob/master/src/main/resources/static/metricaLogo.jpg) |
+|Entorno con docker para MétricaLab | ![Metrica](src/main/resources/static/metricaLogo.jpg) |
 |-------|--------|
 
 Mediante este entorno se dispone un servidor **nginx** (con PHP) y una base de datos **Mysql** para realizar los talleres. Por defecto se dispone de una base de datos llamada **db_sayings**.
