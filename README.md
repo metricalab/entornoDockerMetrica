@@ -24,7 +24,7 @@ Al contruir el entorno se generarán 3 imágenes. Se debe lanzar:
 docker-compose up -d
 ```
 
-Para borrar los contenedores:
+Para parar los contenedores:
 
 ```
 docker-compose down
