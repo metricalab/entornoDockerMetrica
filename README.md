@@ -8,7 +8,7 @@ Mediante este entorno se dispone un servidor **nginx** (con PHP) y una base de d
 Para clonar el entorno se debe lanzar: 
 
 ```
-git clone https://github.com/metricalab/entornoDockerMetrica
+git clone https://github.com/metricalab/entornoDockerMetrica.git
 ```
 A continuación se entra en el directorio **entornoDockerMetrica**:
 
