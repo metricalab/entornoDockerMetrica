@@ -82,3 +82,13 @@ docker run --network=entornodockermetrica_default --name phpmyadmin -d -e PMA_HO
 ```
 
 Se puede acceder a la aplicación desde la url: **http://localhost:8081**
+
+## Borrado de todas las imágenes y contenedores
+
+Se debe lanzar el siguiente comando para borrar todo lo creado anteriormente:
+
+```
+docker system prune -a --volumes
+```
+
+De esta manera todo quedará como si no se hubiera creado ninguna imagen y/o contenedor. Hay que tener en cuenta que las imagenes ocupan mucho espacio en disco. Se pedirá confirmación para realizar la acción.
