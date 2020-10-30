@@ -6,7 +6,7 @@ services:
         build:
             context: ./configuration/php
         ports:
-            - 9000:9000
+            - 9200:9200
         volumes:
             - ./volumes/nginx/:/var/www/html
             - ./configuration/php/www.conf:/usr/local/etc/php-fpm.d/www.conf
