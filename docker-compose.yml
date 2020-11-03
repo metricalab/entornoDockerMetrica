@@ -3,8 +3,11 @@ version: '3'
 services:
 
     php:
+        container_name: metrica-php-fpm
         build:
             context: ./configuration/php
+        networks:
+            - metrica-network            
         ports:
             - 9200:9200
         volumes:
@@ -15,7 +18,10 @@ services:
             MYSQL_PASSWORD: ${MYSQL_PASSWORD}
 
     nginx:
+        container_name: metrica-nginx
         image: nginx:1.13.8
+        networks:
+            - metrica-network         
         ports:
             - 80:80
         volumes:
@@ -26,7 +32,10 @@ services:
             - php
 
     mysql:
+        container_name: metrica-mysql
         image: mysql:8.0.19
+        networks:
+            - metrica-network         
         ports:
             - 3306:3306
         depends_on:
@@ -43,3 +52,5 @@ services:
             - ./volumes/mysql/:/var/lib/mysql
         command:
             'mysqld'
+networks:
+    metrica-network:           
