@@ -185,7 +185,7 @@
           se ha levantado el entorno de Nginx y Mysql para correr phpMyadmin por el puerto <strong>8081</strong> se
           debe lanzar el comando:</p>
         <pre
-          class="card-text">docker run --network=entornodockermetrica_default --name phpmyadmin -d -e PMA_HOST=entornodockermetrica_mysql_1 --link entornodockmetrica_mysql_1:db -p 8081:80 phpmyadmin/phpmyadmin</pre>
+          class="card-text">docker run --network=entornodockermetrica_metrica-network --name metrica-phpmyadmin -d -e PMA_HOST=metrica-mysql --link metrica-mysql:db -p 8081:80 phpmyadmin/phpmyadmin</pre>
         <p class="card-text">Se puede acceder a la aplicación desde la url: <a href="http://localhost:8081"
             target="_blank">http://localhost:8081</a></p>
       </div>
