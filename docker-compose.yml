@@ -16,6 +16,7 @@ services:
         environment:
             MYSQL_USER: ${MYSQL_USER}
             MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+        restart: always            
 
     nginx:
         container_name: metrica-nginx
@@ -23,13 +24,14 @@ services:
         networks:
             - metrica-network         
         ports:
-            - 80:80
+            - 88:80
         volumes:
             - ./volumes/nginx/:/var/www/html
             - ./volumes/logs:/var/log/nginx
             - ./configuration/nginx/default.conf:/etc/nginx/conf.d/default.conf
         depends_on:
             - php
+        restart: always            
 
     mysql:
         container_name: metrica-mysql

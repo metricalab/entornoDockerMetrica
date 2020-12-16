@@ -74,7 +74,7 @@
 			<li><strong>volumes/mysql_config</strong> : Contiene un fichero con parámetros de configuración</li>					
             <li><strong>volumes/nginx</strong> : es la carpeta root del servidor. Es decir, si se guarda una página html
               en ella podrás
-              leerla desde la dirección <a href="http://localhost" target="_blank">http://localhost</a></li>
+              leerla desde la dirección <a href="http://localhost:8" target="_blank">http://localhost:88</a></li>
           </ul>
         </p>
       </div>
@@ -99,10 +99,11 @@
         <h5 class="card-title">Test de la correcta instalación de PHP</h5>
         <h6 class="card-subtitle mb-2 text-muted mt-2"> Antes de comenzar a trabajar con el entorno hay que probar su
           funcionamiento. </h6>
-        <h6 class="card-text">Accediendo a <a href="http://localhost/test/phpinfo.php"
-            target="_blank">http://localhost/test/phpinfo.php</a> se comprueba si funciona correctamente el contenedor
+        <h6 class="card-text">Accediendo a <a href="http://localhost:88/test/phpinfo.php"
+            target="_blank">http://localhost:88/test/phpinfo.php</a> se comprueba si funciona correctamente el contenedor
           de php. Si no es así se mostrará una pantalla de error. </h6>
-        <img src="/assets/img/phpinfo.jpg" class="img-fluid mt-2 mx-auto d-block img-thumbnail" alt="Info de PHP">
+         <img src="/assets/img/phpinfo.png" class="img-fluid mt-2 mx-auto d-block img-thumbnail"
+          alt="Conectar a Mysql con Heidi">
       </div>
     </div>
 
@@ -111,13 +112,10 @@
         <h5 class="card-title">Test de acceso a la base de datos</h5>
         <h6 class="card-subtitle mb-2 text-muted mt-2"> Antes de comenzar a trabajar con el entorno hay que probar su
           funcionamiento. </h6>
-        <h6 class="card-text">Accediendo a <a href="http://localhost/test/connect.php"
-            target="_blank">http://localhost/test/connect.php</a> se comprueba si funciona correctamente el contenedor
-          de Mysql. Si no así se mostrará una pantalla de error. </h6>
-        <img src="/assets/img/connect.png" class="img-fluid mt-2 mx-auto d-block img-thumbnail"
-          alt="Conectar a Mysql">
-        <h6 class="card-text mt-2">Si se accede al código de la página <strong>PHP</strong> se puede comprobar que el <strong>HOST</strong> de acceso es
-          <strong>mysql</strong> y no es <strong>localhost</strong>. </h6>
+        <h6 class="card-text">Se puede utilizar cualquier cliente para conectar a la base de datos. Mediante Heidi por ejemplo: </h6>
+        <img src="/assets/img/connectHeidi.png" class="img-fluid mt-2 mx-auto d-block img-thumbnail"
+          alt="Conectar a Mysql con Heidi">
+        <h6 class="card-text mt-2">Como credenciales puedes probar las de <strong>root</strong> con la password <strong>metrica123</strong> .</h6>
       </div>
     </div>
 
@@ -149,8 +147,8 @@
               <td>"nginx -g 'daemon of…" </td>
               <td>12 hours ago</td>
               <td>Up 3 hours</td>
-              <td>0.0.0.0:80->80/tcp</td>
-              <td>entornodockermetrica_nginx_1</td>
+              <td>0.0.0.0:88->80/tcp</td>
+              <td>metrica-nginx</td>
             </tr>
             <tr>
               <th scope="row">e0b9c9bf17cf</th>
@@ -159,7 +157,7 @@
               <td>12 hours ago</td>
               <td>Up 3 hours </td>
               <td>0.0.0.0:3306->3306/tcp</td>
-              <td>entornodockermetrica_mysql_1</td>
+              <td>metrica-mysql</td>
             </tr>
             <tr>
               <th scope="row">abbce5ec8310</th>
@@ -168,7 +166,7 @@
               <td>12 hours ago</td>
               <td>Up 3 hours</td>
               <td>0.0.0.0:9000->9000/tcp</td>
-              <td>entornodockermetrica_php_1</td>
+              <td>metrica-php-fpm</td>
             </tr>
           </tbody>
         </table>
