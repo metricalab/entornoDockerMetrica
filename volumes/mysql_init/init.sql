@@ -12,6 +12,10 @@ CREATE DATABASE IF NOT EXISTS db_im_marketing;
 CREATE DATABASE IF NOT EXISTS db_testinglab;
 CREATE DATABASE IF NOT EXISTS db_im_crmcore;
 CREATE DATABASE IF NOT EXISTS db_im_metricaguard;
+CREATE DATABASE IF NOT EXISTS db_humanspets;
+
+-- Liquibase database
+CREATE DATABASE IF NOT EXISTS bookdb;
 
 -- Needed sometimes in mysql 8 to allow Grant to Root : 
 -- CREATE USER 'root'@'%' IDENTIFIED BY 'root';
@@ -22,6 +26,11 @@ CREATE USER 'sayingsuser'@'%' IDENTIFIED BY 'sayingspassword';
 CREATE USER 'zipkinuser'@'%' IDENTIFIED BY 'zipkinpass';
 CREATE USER 'testuser'@'%' IDENTIFIED BY 'testpassword';
 ALTER USER 'testuser'@'%' IDENTIFIED WITH mysql_native_password BY 'testpassword';
+
+-- Liquibase usuarios
+CREATE USER IF NOT EXISTS `bookadmin`@`%` IDENTIFIED WITH mysql_native_password BY 'password';
+CREATE USER IF NOT EXISTS `bookuser`@`%` IDENTIFIED WITH mysql_native_password BY 'password';
+
 
 -- Permisos para el nuevo usuario
 GRANT CREATE, ALTER, INDEX, LOCK TABLES, REFERENCES, UPDATE, DELETE, DROP, SELECT, INSERT ON `db_tasks`.* TO 'tasksuser'@'%';
@@ -41,5 +50,12 @@ GRANT CREATE, ALTER, INDEX, LOCK TABLES, REFERENCES, UPDATE, DELETE, DROP, SELEC
 GRANT CREATE, ALTER, INDEX, LOCK TABLES, REFERENCES, UPDATE, DELETE, DROP, SELECT, INSERT ON `db_im_crmcore`.* TO 'root'@'%';
 GRANT CREATE, ALTER, INDEX, LOCK TABLES, REFERENCES, UPDATE, DELETE, DROP, SELECT, INSERT ON `db_im_marketing`.* TO 'root'@'%';
 GRANT CREATE, ALTER, INDEX, LOCK TABLES, REFERENCES, UPDATE, DELETE, DROP, SELECT, INSERT ON `db_im_metricaguard`.* TO 'root'@'%';
+
+GRANT CREATE, ALTER, INDEX, LOCK TABLES, REFERENCES, UPDATE, DELETE, DROP, SELECT, INSERT ON `db_humanspets`.* TO 'root'@'%';
+
+-- Liquibase permisos
+GRANT CREATE, ALTER, INDEX, LOCK TABLES, REFERENCES, UPDATE, DELETE, DROP, SELECT, INSERT ON `bookdb`.* TO 'root'@'%';
+GRANT CREATE, ALTER, INDEX, LOCK TABLES, REFERENCES, UPDATE, DELETE, DROP, SELECT, INSERT ON `bookdb`.* TO 'bookadmin'@'%';
+GRANT CREATE, ALTER, INDEX, LOCK TABLES, REFERENCES, UPDATE, DELETE, DROP, SELECT, INSERT ON `bookdb`.* TO 'bookuser'@'%';
 
 FLUSH PRIVILEGES;
